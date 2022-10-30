@@ -13,8 +13,18 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": "./",
+    "paths": {
+      "Common/*": ["src/common/*"],
+      "Pages/*": ["src/pages/*"],
+      "Landing/*": ["src/modules/landing/*"],
+      "Account/*": ["src/modules/account/*"],
+      "Profile/*": ["src/modules/profile/*"],
+      "Match/*": ["src/modules/match/*"],
+      "Styles/*": ["styles/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "tailwind.config.js"]
 }
