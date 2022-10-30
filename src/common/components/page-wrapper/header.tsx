@@ -12,8 +12,8 @@ export function Header() {
         <Link href="/about">
           About lls
         </Link>
-        <Link href="/login">
-          Login
+        <Link href="/signin">
+          Signin
         </Link>
         <Link href="/signup">
           Signup
