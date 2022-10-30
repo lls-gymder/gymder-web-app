@@ -39,6 +39,9 @@ const defaultNav = (
 
 const authenticatedNav = (user: IBaseUser, signout: () => void) => (
   <>
+    <Link href="/portal">
+      Portal
+    </Link>
     <span>
       {user.name}
     </span>

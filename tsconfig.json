@@ -20,7 +20,7 @@
       "Pages/*": ["src/pages/*"],
       "Generics/*": ["src/modules/generics/*"],
       "Profile/*": ["src/modules/profile/*"],
-      "Match/*": ["src/modules/match/*"],
+      "Portal/*": ["src/modules/portal/*"],
       "Styles/*": ["styles/*"],
       "Public/*": ["public/*"]
     }
