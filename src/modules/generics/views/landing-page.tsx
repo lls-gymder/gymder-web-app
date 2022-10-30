@@ -1,5 +1,4 @@
 import { Page } from 'Common/components'
-import Head from 'next/head'
 
 export function LandingPageView() {
   return (

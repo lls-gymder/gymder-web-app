@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { Footer } from "./footer";
 import { Header } from "./header";
 import { SideMenu } from "./side-menu";
 
@@ -32,7 +31,7 @@ export function Page({ children, showSideMenu = true }: Props) {
         : (
           <div className="w-full h-full flex flex-col">
             <Header />
-              <div className="grow flex grow justify-center">
+              <div className="flex grow justify-center">
                 {children}
               </div>
             {/* <Footer /> */}
