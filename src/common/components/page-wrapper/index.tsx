@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import { Header } from "./header";
-import { SideMenu } from "./side-menu";
+import { ReactNode } from 'react';
+import { Header } from './header';
+import { SideMenu } from './side-menu';
 
 
 interface Props {

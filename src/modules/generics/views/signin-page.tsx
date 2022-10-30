@@ -1,16 +1,22 @@
 import { Page } from 'Common/components'
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { MdAlternateEmail } from 'react-icons/md';
-import { SigninService } from 'Generics/services';
+import { useAuth } from 'Common/hooks';
+import { useRouter } from 'next/router';
 
 export function SigninPageView() {
+  const router = useRouter();
+  const { signin, isAuthenticated } = useAuth();
+
+  if (isAuthenticated)
+    router.push('/');
 
   const onSubmit = async (event: any) => {
     event.preventDefault();
 
     const [ email, password ] = event.target;
     
-    await SigninService({
+    signin({
       email: email.value,
       password: password.value,
     })

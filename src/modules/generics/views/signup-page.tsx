@@ -2,16 +2,22 @@ import { Page } from 'Common/components'
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { TbForms } from 'react-icons/tb';
 import { MdAlternateEmail } from 'react-icons/md';
-import { SignupService } from 'Generics/services';
+import { useAuth } from 'Common/hooks';
+import { useRouter } from 'next/router';
 
 export function SignupPageView() {
-  
+  const router = useRouter();
+  const { signup, isAuthenticated } = useAuth();
+
+  if (isAuthenticated)
+    router.push('/');
+
   const onSubmit = async (event: any) => {
     event.preventDefault();
 
     const [ name, surname, email, password ] = event.target;
     
-    await SignupService({
+    signup({
       name: `${name.value} ${surname.value}`,
       email: email.value,
       password: password.value,

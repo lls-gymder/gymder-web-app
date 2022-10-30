@@ -1,12 +1,11 @@
+import { IBaseUser } from './user';
+
 export interface ISignInRequest {
   email: string;
   password: string;
 }
 
 export interface ISigninResponse {
-  user: {
-    name: string,
-    email: string,
-  },
-  token: string,
+  user: IBaseUser;
+  token: string;
 }
