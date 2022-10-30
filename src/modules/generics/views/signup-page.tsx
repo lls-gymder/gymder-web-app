@@ -2,20 +2,19 @@ import { Page } from 'Common/components'
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { TbForms } from 'react-icons/tb';
 import { MdAlternateEmail } from 'react-icons/md';
+import { SignupService } from 'Generics/services';
 
 export function SignupPageView() {
 
-  const onSubmit = (event: any) => {
+  const onSubmit = async (event: any) => {
     event.preventDefault();
 
-    const [ name, surname, email, password, rePassword ] = event.target;
-
-    console.table({
-      name: name.value,
-      surname: surname.value,
+    const [ name, surname, email, password ] = event.target;
+    
+    await SignupService({
+      name: `${name.value} ${surname.value}`,
       email: email.value,
       password: password.value,
-      rePassword: rePassword.value,
     })
   }
 

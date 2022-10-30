@@ -1,11 +1,10 @@
-import { api } from 'Common/services';
-import { ICreateUser } from 'Generics/models';
+import { usersApi } from 'Common/services';
+import { ISignUp } from 'Generics/models';
 
+interface ISignupResponse {
+  message: string;
+}
 
-export const createUserService = async (data: ICreateUser): Promise<any> => {
-  return await api.post('/users', data)
-    .then(console.log)
-    .then((result: any) => result.data.json)
-    .catch(console.log);
-
+export const SignupService = async (data: ISignUp): Promise<any> => {
+  return await usersApi.post<ISignupResponse>('/', data);
 }
