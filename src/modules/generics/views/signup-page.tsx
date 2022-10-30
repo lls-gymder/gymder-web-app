@@ -21,7 +21,7 @@ export function SignupPageView() {
 
   return (
     <Page showSideMenu={false}>
-      <div className='flex'>
+      <div className='flex prose'>
         <div className='rounded-2xl shadow-xl bg-gray-100 p-10 m-auto w-[40vw] flex flex-col justify-center'>
           <h2 className='m-auto mb-6'>Sign Up</h2>
           <form onSubmit={onSubmit} className='grid grid-flow-row gap-4 '>

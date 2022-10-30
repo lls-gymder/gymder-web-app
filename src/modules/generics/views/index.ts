@@ -1,2 +1,3 @@
 export * from "./landing-page";
 export * from "./about-page";
+export * from "./signup-page";

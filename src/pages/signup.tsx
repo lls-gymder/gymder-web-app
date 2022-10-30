@@ -1,4 +1,4 @@
-import { SignupPageView } from 'Generics/views/signup-page';
+import { SignupPageView } from 'Generics/views';
 
 export default function Landing() {
   return (
