@@ -1,4 +1,11 @@
 import axios from 'axios';
+import { LocalStorageKeys } from 'Common/models';
+
+const accessToken =
+  (typeof window !== 'undefined' &&
+    localStorage.getItem(LocalStorageKeys.userToken
+    )) ||
+  null;
 
 const usersApi = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_API_BASE_URL}/user`,
@@ -10,7 +17,7 @@ const usersApi = axios.create({
 const protectedUsersApi = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_API_BASE_URL}/user`,
   headers: {
-    'Authorization': `Bearer ${'testing'}`,
+    'Authorization': `Bearer ${accessToken}`,
     'Content-Type': 'application/json',
   }
 })

@@ -1,7 +1,7 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 
 import { AuthContextType, IBaseUser, ISignInRequest, ISignUpRequest, LocalStorageKeys } from 'Common/models';
-import { SigninService, SignupService } from 'Common/services';
+import { ReadUserService, SigninService, SignupService } from 'Common/services';
 
 
 type Props = {
@@ -14,6 +14,18 @@ export function AuthContextProvider({ children }: Props) {
   const [ user , setUser ] = useState<IBaseUser | undefined>();
 
   const isAuthenticated = user !== undefined;
+
+
+  useEffect(() => {
+    const storageToken = localStorage.getItem(LocalStorageKeys.userToken);
+    
+    if (storageToken) 
+      ReadUserService().then(result => { 
+        if (result)
+          setUser(result) 
+      })
+  }, [])
+  
 
   const signin = async ({email, password}: ISignInRequest) => {
     await SigninService({
@@ -31,7 +43,7 @@ export function AuthContextProvider({ children }: Props) {
       name,
       email,
       password
-    }).then(console.log);
+    }).then();
   }
 
   const signout = () => {
