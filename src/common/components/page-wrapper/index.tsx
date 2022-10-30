@@ -6,13 +6,13 @@ import { SideMenu } from "./side-menu";
 
 interface Props {
   children: ReactNode;
-  showSideMenu: boolean;
+  showSideMenu?: boolean;
 }
 
 export function Page({ children, showSideMenu = true }: Props) {
   return (
 
-    <div className="container h-screen flex">
+    <div className="w-screen bg-purple-400 h-screen flex">
       {
         showSideMenu
         ? (
@@ -20,22 +20,22 @@ export function Page({ children, showSideMenu = true }: Props) {
             <div className="w-80 bg-blue-200">
               <SideMenu />
             </div>
-            <div className="h-full flex flex-col container">
+            <div className="w-full h-full flex flex-col">
               <Header />
                 <div className="bg-purple-400 flex grow justify-center">
                   {children}
                 </div>
-              <Footer />
+              {/* <Footer /> */}
             </div>
           </>
         )
         : (
-          <div className="container h-full flex flex-col">
+          <div className="w-full h-full flex flex-col">
             <Header />
               <div className="grow flex grow justify-center">
                 {children}
               </div>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         )
       }

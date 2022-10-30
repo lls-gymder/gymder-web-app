@@ -1,16 +1,24 @@
-
+import Image from "next/image";
+import Link from "next/link";
+import logo from "Public/vercel.svg"
 
 export function Header() {
   return (
-    <div className="bg-blue-200 h-16 max-h-fit grid content-center">
-      <div className="bg-green-200 flex justify-between px-10">
-        <div>
-          test
-        </div>
-        <div>
-          test
-        </div>
-      </div>
-    </div>
+    <nav className="bg-green-200 h-16 flex justify-between items-center px-10 relative">
+      <Link href="/">
+        <Image src={logo.src} height="100" width="200" object-fit="contain" alt="logo"/>
+      </Link>
+      <nav className="grid gap-10 grid-flow-col">
+        <Link href="/about">
+          About lls
+        </Link>
+        <Link href="/login">
+          Login
+        </Link>
+        <Link href="/signup">
+          Signup
+        </Link>
+      </nav>
+    </nav>
   )
 }

@@ -18,11 +18,11 @@
     "paths": {
       "Common/*": ["src/common/*"],
       "Pages/*": ["src/pages/*"],
-      "Landing/*": ["src/modules/landing/*"],
-      "Account/*": ["src/modules/account/*"],
+      "Generics/*": ["src/modules/generics/*"],
       "Profile/*": ["src/modules/profile/*"],
       "Match/*": ["src/modules/match/*"],
-      "Styles/*": ["styles/*"]
+      "Styles/*": ["styles/*"],
+      "Public/*": ["public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
