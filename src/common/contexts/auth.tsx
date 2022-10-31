@@ -1,9 +1,8 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import { AuthContextType, IFullUser, ISignInRequest, ISignUpRequest, LocalStorageKeys } from 'Common/models';
 import { ReadUserService, SigninService, SignupService } from 'Common/services';
-import { useRouter } from 'next/router';
-
 
 type Props = {
   children: ReactNode;
