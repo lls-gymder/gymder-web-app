@@ -2,8 +2,8 @@
 
 export function SideMenu() {
   return (
-    <div className="h-16">
-      this is a side menu
+    <div className="h-screen flex flex-col justify-center align-middle">
+      
     </div>
   )
 }

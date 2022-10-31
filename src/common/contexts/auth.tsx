@@ -1,7 +1,8 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
-import { AuthContextType, IBaseUser, ISignInRequest, ISignUpRequest, LocalStorageKeys } from 'Common/models';
+import { AuthContextType, IFullUser, ISignInRequest, ISignUpRequest, LocalStorageKeys } from 'Common/models';
 import { ReadUserService, SigninService, SignupService } from 'Common/services';
+import { useRouter } from 'next/router';
 
 
 type Props = {
@@ -11,28 +12,39 @@ type Props = {
 export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider({ children }: Props) {
-  const [ user , setUser ] = useState<IBaseUser | undefined>();
+  const router = useRouter();
+  const [ user , setUser ] = useState<IFullUser | undefined>();
 
   const isAuthenticated = user !== undefined;
 
 
   useEffect(() => {
     const storageToken = localStorage.getItem(LocalStorageKeys.userToken);
-    
+
     if (storageToken) 
-      ReadUserService().then(result => { 
+      readUser();
+    else if(!isAuthenticated)
+      router.push('/');
+    
+  }, [user])
+  
+  const readUser = async() => {
+    ReadUserService()
+      .then(result => { 
         if (result)
           setUser(result) 
       })
-  }, [])
-  
+      .catch(() => {
+        router.push('/');
+      })
+  }
 
   const signin = async ({email, password}: ISignInRequest) => {
     await SigninService({
       email,
       password
-    }).then(({user, token}) => {
-      localStorage.setItem(LocalStorageKeys.userToken, token)
+    }).then(async ({user, token}) => {
+      localStorage.setItem(LocalStorageKeys.userToken, token);
 
       setUser(user);
     });

@@ -20,6 +20,7 @@
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "quotes": ["error", "single"],
-    "no-console": ["warn", { "allow": ["warn", "error"] }]
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "react-hooks/exhaustive-deps": "off"
   }
 }

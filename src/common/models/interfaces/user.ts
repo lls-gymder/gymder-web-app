@@ -4,5 +4,5 @@ export interface IBaseUser {
 }
 
 export interface IFullUser extends IBaseUser {
-  test: string;
+  avatar?: string;
 }
