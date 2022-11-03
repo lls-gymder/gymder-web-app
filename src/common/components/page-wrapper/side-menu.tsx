@@ -1,5 +1,6 @@
 import { useAuth } from 'Common/hooks'
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { FaUserNinja } from 'react-icons/fa';
 
@@ -18,6 +19,9 @@ export function SideMenu() {
             }
           </div>
           <h2 className='text-3xl mt-1'>{user?.name ?? 'undefined'}</h2>
+          <Link href="/profile/edit">
+            Edit profile
+          </Link>
         </div>
       </div>
     </div>

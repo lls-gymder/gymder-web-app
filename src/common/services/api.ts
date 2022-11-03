@@ -7,19 +7,20 @@ const accessToken =
     )) ||
   null;
 
-const usersApi = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_API_BASE_URL}/user`,
+const api = axios.create({
+  baseURL: `${process.env.NEXT_PUBLIC_API_BASE_URL}`,
   headers: {
     'Content-Type': 'application/json',
   }
 });
 
-const protectedUsersApi = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_API_BASE_URL}/user`,
+const protectedApi = axios.create({
+  baseURL: `${process.env.NEXT_PUBLIC_API_BASE_URL}`,
   headers: {
     'Authorization': `Bearer ${accessToken}`,
     'Content-Type': 'application/json',
   }
 })
 
-export { usersApi, protectedUsersApi };
+
+export { api, protectedApi };

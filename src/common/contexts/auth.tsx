@@ -33,9 +33,6 @@ export function AuthContextProvider({ children }: Props) {
         if (result)
           setUser(result) 
       })
-      .catch(() => {
-        router.push('/');
-      })
   }
 
   const signin = async ({email, password}: ISignInRequest) => {
@@ -45,7 +42,7 @@ export function AuthContextProvider({ children }: Props) {
     }).then(async ({user, token}) => {
       localStorage.setItem(LocalStorageKeys.userToken, token);
 
-      setUser(user);
+      readUser();
     });
   }
 
